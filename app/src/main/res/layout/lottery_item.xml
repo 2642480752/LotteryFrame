@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <com.xuexiang.xui.widget.shadow.ShadowTextView
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/xui_config_color_white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:sb_shape_type="round"
+        app:sd_bgColor="#FF0000"
+        app:sd_shadowRadius="10dp"
+        app:sd_shapeType="round" />
+
+    <com.xuexiang.xui.widget.shadow.ShadowTextView
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/xui_config_color_white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:sb_shape_type="round"
+        app:sd_bgColor="#FF0000"
+        app:sd_shadowRadius="10dp"
+        app:sd_shapeType="round" />
+
+    <com.xuexiang.xui.widget.shadow.ShadowTextView
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/xui_config_color_white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:sb_shape_type="round"
+        app:sd_bgColor="#FF0000"
+        app:sd_shadowRadius="10dp"
+        app:sd_shapeType="round" />
+
+    <com.xuexiang.xui.widget.shadow.ShadowTextView
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/xui_config_color_white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:sb_shape_type="round"
+        app:sd_bgColor="#FF0000"
+        app:sd_shadowRadius="10dp"
+        app:sd_shapeType="round" />
+
+    <com.xuexiang.xui.widget.shadow.ShadowTextView
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/xui_config_color_white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:sb_shape_type="round"
+        app:sd_bgColor="#FF0000"
+        app:sd_shadowRadius="10dp"
+        app:sd_shapeType="round" />
+
+    <com.xuexiang.xui.widget.shadow.ShadowTextView
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/xui_config_color_white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:sb_shape_type="round"
+        app:sd_bgColor="#FF0000"
+        app:sd_shadowRadius="10dp"
+        app:sd_shapeType="round" />
+
+    <com.xuexiang.xui.widget.shadow.ShadowTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/xui_config_color_white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:sb_shape_type="round"
+        app:sd_bgColor="#0000FF"
+        app:sd_shadowRadius="10dp"
+        app:sd_shapeType="round" />
+</LinearLayout>
