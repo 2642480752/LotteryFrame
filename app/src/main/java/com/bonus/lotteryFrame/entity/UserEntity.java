@@ -10,17 +10,21 @@ import java.io.Serializable;
 /**
  * @author 菜旗
  * @date 2022/4/4 20:33
- * @description 账单记录实体类
+ * @description 用户实体类
  */
 @Entity(nameInDb = "tb_user")
-public class UserEntity{
+public class UserEntity {
     /**
      * 唯一主键
      */
     @Property(nameInDb = "id")
     @Id(autoincrement = true)
     private Long id;
-
+    /**
+     * 名称
+     */
+    @Property(nameInDb = "name")
+    private String name;
     /**
      * 电话
      */
@@ -34,16 +38,25 @@ public class UserEntity{
     private String passWord;
 
     /**
+     * 用户类型
+     */
+    @Property(nameInDb = "type")
+    private String type;
+
+    /**
      * 插入时间
      */
     @Property(nameInDb = "time")
     private String time;
 
-    @Generated(hash = 1798757231)
-    public UserEntity(Long id, String phone, String passWord, String time) {
+    @Generated(hash = 985332811)
+    public UserEntity(Long id, String name, String phone, String passWord,
+            String type, String time) {
         this.id = id;
+        this.name = name;
         this.phone = phone;
         this.passWord = passWord;
+        this.type = type;
         this.time = time;
     }
 
@@ -83,12 +96,19 @@ public class UserEntity{
         this.time = time;
     }
 
+    public String getName() {
+        return this.name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
-   
-   
+    public String getType() {
+        return this.type;
+    }
 
-   
-
-
+    public void setType(String type) {
+        this.type = type;
+    }
 }

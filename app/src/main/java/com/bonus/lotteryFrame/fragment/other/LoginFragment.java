@@ -32,6 +32,7 @@ import com.bonus.lotteryFrame.databinding.FragmentLoginBinding;
 import com.bonus.lotteryFrame.entity.UserEntity;
 import com.bonus.lotteryFrame.sqlite.CommonDaoUtils;
 import com.bonus.lotteryFrame.sqlite.dao.UserEntityDao;
+import com.bonus.lotteryFrame.utils.MMKVUtils;
 import com.bonus.lotteryFrame.utils.RandomUtils;
 import com.bonus.lotteryFrame.utils.SharedPreferencesUtils;
 import com.bonus.lotteryFrame.utils.StringHelper;
@@ -56,7 +57,7 @@ import java.util.List;
  * @author xuexiang
  * @since 2019-11-17 22:15
  */
-@Page(name = "登录", anim = CoreAnim.none)
+@Page(anim = CoreAnim.none)
 public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements View.OnClickListener {
     private CommonDaoUtils userDao = MyApp.getMySqLite(UserEntity.class);
 
@@ -78,10 +79,10 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements
     protected void initViews() {
         SharedPreferencesUtils helper = new SharedPreferencesUtils(getActivity(), "name");
         loginFragment = this;
-        binding.etPhoneNumber.setText(helper.getString("phone"));
-        if (helper.getBoolean("rememberPassword", false)) {
+        binding.etPhoneNumber.setText(MMKVUtils.getString("phone", ""));
+        if (MMKVUtils.containsKey("rememberPassword")) {
             binding.rememberPassword.setChecked(true);
-            binding.etPassWord.setText(helper.getString("passWord"));
+            binding.etPassWord.setText(MMKVUtils.getString("passWord", ""));
         }
 
     }
@@ -143,7 +144,7 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements
                 map.put("rememberPassword", binding.rememberPassword.isChecked());
                 map.put("phone", phone);
                 map.put("passWord", passWord);
-                helper.putValues(map);
+                MMKVUtils.put(map);
                 onLoginSuccess();
             }
         }
@@ -155,13 +156,15 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements
      * 登录成功的处理
      */
     private void onLoginSuccess() {
-        String token = RandomUtils.getRandomNumbersAndLetters(16);
-        if (TokenUtils.handleLoginSuccess(token)) {
-            popToBack();
-            ActivityUtils.startActivity(MainActivity.class);
-        }
+        popToBack();
+        ActivityUtils.startActivity(MainActivity.class);
     }
 
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
 
 }
 

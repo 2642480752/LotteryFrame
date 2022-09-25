@@ -23,6 +23,8 @@ import android.os.Parcelable;
 
 import com.tencent.mmkv.MMKV;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -88,6 +90,38 @@ public final class MMKVUtils {
         return false;
     }
 
+    /**
+     * 保存键值
+     *
+     * @param map
+     * @return
+     */
+    public static void put(HashMap<String, Object> map) {
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+            if (value instanceof Integer) {
+                getsMMKV().encode(key, (Integer) value);
+            } else if (value instanceof Float) {
+                getsMMKV().encode(key, (Float) value);
+            } else if (value instanceof String) {
+                getsMMKV().encode(key, (String) value);
+            } else if (value instanceof Boolean) {
+                getsMMKV().encode(key, (Boolean) value);
+            } else if (value instanceof Long) {
+                getsMMKV().encode(key, (Long) value);
+            } else if (value instanceof Double) {
+                getsMMKV().encode(key, (Double) value);
+            } else if (value instanceof Parcelable) {
+                getsMMKV().encode(key, (Parcelable) value);
+            } else if (value instanceof byte[]) {
+                getsMMKV().encode(key, (byte[]) value);
+            } else if (value instanceof Set) {
+                getsMMKV().encode(key, (Set<String>) value);
+            }
+
+        }
+    }
 
     //=======================================键值获取==================================================//
 

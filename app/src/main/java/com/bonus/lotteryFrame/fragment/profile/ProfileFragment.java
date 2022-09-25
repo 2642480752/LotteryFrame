@@ -25,10 +25,13 @@ import androidx.annotation.NonNull;
 import com.bonus.lotteryFrame.R;
 import com.bonus.lotteryFrame.core.BaseFragment;
 import com.bonus.lotteryFrame.databinding.FragmentProfileBinding;
+import com.bonus.lotteryFrame.utils.TokenUtils;
+import com.bonus.lotteryFrame.utils.XToastUtils;
 import com.xuexiang.xaop.annotation.SingleClick;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xpage.enums.CoreAnim;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
+import com.xuexiang.xui.widget.dialog.DialogLoader;
 import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
 
 /**
@@ -38,35 +41,50 @@ import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
 @Page(anim = CoreAnim.none)
 public class ProfileFragment extends BaseFragment<FragmentProfileBinding> implements SuperTextView.OnSuperTextViewClickListener {
 
+
     @NonNull
     @Override
     protected FragmentProfileBinding viewBindingInflate(LayoutInflater inflater, ViewGroup container) {
         return FragmentProfileBinding.inflate(inflater, container, false);
     }
 
-    /**
-     * @return 返回为 null意为不需要导航栏
-     */
     @Override
     protected TitleBar initTitle() {
         return null;
     }
 
-    /**
-     * 初始化控件
-     */
     @Override
     protected void initViews() {
-
-    }
-
-    @Override
-    protected void initListeners() {
-
+        binding.menuCommon.setOnSuperTextViewClickListener(this);
+        binding.menuPrivacy.setOnSuperTextViewClickListener(this);
+        binding.menuPush.setOnSuperTextViewClickListener(this);
+        binding.menuHelper.setOnSuperTextViewClickListener(this);
+        binding.menuChangeAccount.setOnSuperTextViewClickListener(this);
+        binding.menuLogout.setOnSuperTextViewClickListener(this);
     }
 
     @SingleClick
     @Override
-    public void onClick(SuperTextView view) {
+    public void onClick(SuperTextView superTextView) {
+        int id = superTextView.getId();
+        if (id == R.id.menu_common || id == R.id.menu_privacy || id == R.id.menu_push || id == R.id.menu_helper) {
+            XToastUtils.toast(superTextView.getLeftString());
+        } else if (id == R.id.menu_change_account) {
+            XToastUtils.toast(superTextView.getCenterString());
+        } else if (id == R.id.menu_logout) {
+            DialogLoader.getInstance().showConfirmDialog(
+                    getActivity(),
+                    getString(R.string.lab_logout_confirm),
+                    getString(R.string.lab_yes),
+                    (dialog, which) -> {
+                        dialog.dismiss();
+                        TokenUtils.handleLogoutSuccess();
+                        popToBack();
+                    },
+                    getString(R.string.lab_no),
+                    (dialog, which) -> dialog.dismiss()
+            );
+        }
     }
+
 }

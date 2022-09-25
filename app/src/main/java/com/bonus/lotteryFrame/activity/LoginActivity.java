@@ -22,7 +22,10 @@ import android.view.KeyEvent;
 
 import com.bonus.lotteryFrame.core.BaseActivity;
 import com.bonus.lotteryFrame.fragment.other.LoginFragment;
+import com.bonus.lotteryFrame.utils.XToastUtils;
+import com.xuexiang.xui.utils.KeyboardUtils;
 import com.xuexiang.xui.utils.StatusBarUtils;
+import com.xuexiang.xutil.common.ClickUtils;
 import com.xuexiang.xutil.display.Colors;
 
 /**
@@ -31,7 +34,7 @@ import com.xuexiang.xutil.display.Colors;
  * @author xuexiang
  * @since 2019-11-17 22:21
  */
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity implements ClickUtils.OnClick2ExitListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +43,32 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override
-    protected boolean isSupportSlideBack() {
-        return false;
+    protected void initStatusBarStyle() {
+        StatusBarUtils.initStatusBarStyle(this, false, Colors.TRANSPARENT);
+    }
+
+    /**
+     * 菜单、返回键响应
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            ClickUtils.exitBy2Click(2000, this);
+        }
+        return true;
     }
 
     @Override
-    protected void initStatusBarStyle() {
-        StatusBarUtils.initStatusBarStyle(this, false, Colors.WHITE);
+    public void onRetry() {
+        XToastUtils.toast("再按一次退出程序");
     }
 
+    /**
+     * 退出
+     */
+    @Override
+    public void onExit() {
+        moveTaskToBack(true);
+    }
 
 }

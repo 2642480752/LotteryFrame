@@ -26,11 +26,13 @@ import androidx.multidex.MultiDex;
 import com.bonus.lotteryFrame.sqlite.CommonDaoUtils;
 import com.bonus.lotteryFrame.sqlite.DaoManager;
 import com.bonus.lotteryFrame.sqlite.DaoUtilsStore;
+import com.bonus.lotteryFrame.utils.MMKVUtils;
 import com.bonus.lotteryFrame.utils.sdkinit.ANRWatchDogInit;
 import com.bonus.lotteryFrame.utils.sdkinit.UMengInit;
 import com.bonus.lotteryFrame.utils.sdkinit.XBasicLibInit;
 import com.bonus.lotteryFrame.utils.sdkinit.XUpdateInit;
 import com.huantansheng.easyphotos.EasyPhotos;
+import com.xuexiang.xutil.XUtil;
 
 /**
  * @author xuexiang

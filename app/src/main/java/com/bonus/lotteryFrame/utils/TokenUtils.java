@@ -19,6 +19,7 @@ package com.bonus.lotteryFrame.utils;
 
 import android.content.Context;
 
+import com.bonus.lotteryFrame.activity.LoginActivity;
 import com.umeng.analytics.MobclickAgent;
 import com.xuexiang.xutil.app.ActivityUtils;
 import com.xuexiang.xutil.common.StringUtils;
@@ -82,6 +83,16 @@ public final class TokenUtils {
             XToastUtils.error("登录失败！");
             return false;
         }
+    }
+
+    /**
+     * 处理登出的事件
+     */
+    public static void handleLogoutSuccess() {
+        XToastUtils.success("登出成功！");
+        SettingUtils.setIsAgreePrivacy(false);
+        //跳转到登录页
+        ActivityUtils.startActivity(LoginActivity.class);
     }
 
 }

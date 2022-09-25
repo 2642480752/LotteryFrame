@@ -18,15 +18,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white_easy_photos"
+    android:background="?attr/xui_config_color_background"
     android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
+    <TextView
+        style="@style/TextStyle.Title"
         android:layout_height="match_parent"
-        android:overScrollMode="never"
-        tools:listitem="@layout/layout_widget_item" />
+        android:layout_gravity="center"
+        android:text="@string/menu_profile" />
 
 </LinearLayout>

@@ -146,9 +146,12 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements B
         XToastUtils.toast("再按一次退出程序");
     }
 
+    /**
+     * 退出
+     */
     @Override
     public void onExit() {
-        XUtil.exitApp();
+        moveTaskToBack(true);
     }
 
 

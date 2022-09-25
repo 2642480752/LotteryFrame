@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xuexiang.xui.widget.layout.XUIFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    style="@style/XUILayout"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginStart="@dimen/config_margin_5dp"
+    android:layout_marginTop="@dimen/config_margin_5dp"
+    android:layout_marginEnd="@dimen/config_margin_5dp"
+    android:layout_marginBottom="@dimen/config_margin_5dp">
+
+    <LinearLayout
+        android:id="@+id/item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/item_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_type"
+                style="@style/TextStyle.Title"
+                android:lines="2"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/item_name"
+                style="@style/TextStyle.Explain"
+                android:lines="2"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/item_delete"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:srcCompat="@drawable/ic_login_close" />
+    </LinearLayout>
+</com.xuexiang.xui.widget.layout.XUIFrameLayout>

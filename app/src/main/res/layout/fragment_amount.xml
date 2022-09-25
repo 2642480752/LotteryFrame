@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 2019 xuexiangjys(xuexiangjys@163.com)
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical">
+
+        <com.xuexiang.xui.widget.layout.XUIFrameLayout
+            android:id="@+id/fl_verify_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/config_margin_5dp"
+            android:layout_marginTop="@dimen/config_margin_5dp"
+            android:layout_marginEnd="@dimen/config_margin_5dp"
+            android:layout_marginBottom="@dimen/config_margin_5dp"
+            android:background="@drawable/ic_default_head">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="@dimen/config_margin_10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextStyle.Title"
+                        android:lines="2"
+                        android:text="当前可用余额"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/item_amount"
+                        style="@style/TextStyle.Explain"
+                        android:layout_width="match_parent"
+                        android:gravity="end"
+                        android:lines="2"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="@dimen/config_margin_10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextStyle.Title"
+                        android:lines="2"
+                        android:text="户号信息"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/item_name"
+                        style="@style/TextStyle.Explain"
+                        android:layout_width="match_parent"
+                        android:gravity="end"
+                        android:lines="2"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="@dimen/config_margin_10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextStyle.Title"
+                        android:lines="2"
+                        android:text="住址信息"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/item_address"
+                        style="@style/TextStyle.Explain"
+                        android:layout_width="match_parent"
+                        android:gravity="end"
+                        android:lines="2"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.xuexiang.xui.widget.layout.XUIFrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/config_margin_5dp"
+            android:layout_marginTop="@dimen/config_margin_5dp"
+            android:layout_marginEnd="@dimen/config_margin_5dp"
+            android:layout_marginBottom="@dimen/config_margin_5dp"
+            android:background="@drawable/ic_default_head">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                tools:listitem="@layout/layout_cost_recor_item" />
+        </FrameLayout>
+
+    </LinearLayout>
+</LinearLayout>

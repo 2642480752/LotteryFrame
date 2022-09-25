@@ -1,6 +1,7 @@
 package com.bonus.lotteryFrame.sqlite;
 
 
+import com.bonus.lotteryFrame.MyApp;
 import com.bonus.lotteryFrame.sqlite.dao.DaoSession;
 import com.bonus.lotteryFrame.sqlite.dao.UserEntityDao;
 
@@ -127,6 +128,6 @@ public class CommonDaoUtils<T> {
      */
     public List<T> queryByQueryBuilder(WhereCondition cond, WhereCondition... condMore) {
         QueryBuilder<T> queryBuilder = mDaoSession.queryBuilder(entityClass);
-        return queryBuilder.where(cond, condMore).list();
+        return queryBuilder.where(cond, condMore).orderDesc().list();
     }
 }
